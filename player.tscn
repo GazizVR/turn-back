@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cmrfg45wv3ad1"]
+
+[ext_resource type="Script" uid="uid://c1chg11i4tkhg" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="AudioStream" uid="uid://38sglc51evbt" path="res://footsteps.ogg" id="2_onrkg"]
+[ext_resource type="AudioStream" uid="uid://csvh0iwpqn0lg" path="res://flashlight.ogg" id="3_i3pqv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_up4dr"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1485869630]
+script = ExtResource("1_4flbx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=702489170]
+shape = SubResource("CapsuleShape3D_up4dr")
+
+[node name="CamPivot" type="Node3D" parent="." unique_id=673691276]
+
+[node name="Camera3D" type="Camera3D" parent="CamPivot" unique_id=516132811]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.25)
+current = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CamPivot" unique_id=321120419]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.25)
+visible = false
+shadow_enabled = true
+spot_range = 10.0
+spot_angle = 30.0
+
+[node name="FootstepsStreamPlayer" type="AudioStreamPlayer3D" parent="." unique_id=623959534]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -0.5)
+stream = ExtResource("2_onrkg")
+max_distance = 2.0
+parameters/looping = true
+
+[node name="FlashlightAudio" type="AudioStreamPlayer3D" parent="." unique_id=1538962871]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+stream = ExtResource("3_i3pqv")
