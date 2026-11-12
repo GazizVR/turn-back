@@ -19,7 +19,7 @@ func _input(event: InputEvent) -> void:
 		rotate_y(-event.relative.x*MOUSE_SENS)
 		var angle_x = -event.relative.y*MOUSE_SENS
 		var rotation_x = cam.rotation.x + angle_x
-		rotation_x = clamp(rotation_x,-1,1)
+		rotation_x = clamp(rotation_x,-1.5,1.5)
 		cam.rotation.x = rotation_x
 
 const SPEED = 3.0

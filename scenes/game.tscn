@@ -9,10 +9,58 @@
 [node name="game" type="Node3D" unique_id=2025859119]
 script = ExtResource("1_80nbo")
 
-[node name="Classroom" parent="." unique_id=1270208102 instance=ExtResource("2_iywne")]
+[node name="Map" type="Node3D" parent="." unique_id=1339096541]
+
+[node name="Classroom" parent="Map" unique_id=1270208102 instance=ExtResource("2_iywne")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+
+[node name="LightColumn" type="Node3D" parent="Map" unique_id=178285411]
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Map/LightColumn" unique_id=1997078536]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.0546267, 3, -2.051)
+area_size = Vector2(1.1599233, 0.21755886)
+
+[node name="AreaLight3D2" type="AreaLight3D" parent="Map/LightColumn" unique_id=1251392466]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 3.294998, 3, -2.051)
+area_size = Vector2(1.1599233, 0.21755886)
+
+[node name="AreaLight3D3" type="AreaLight3D" parent="Map/LightColumn" unique_id=1094114724]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.9230347, 3, -2.051)
+area_size = Vector2(1.1599233, 0.21755886)
+
+[node name="AreaLight3D4" type="AreaLight3D" parent="Map/LightColumn" unique_id=902962150]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.58256435, 3, -2.051)
+area_size = Vector2(1.1599233, 0.21755886)
+
+[node name="AreaLight3D5" type="AreaLight3D" parent="Map/LightColumn" unique_id=834230455]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.783285, 3, -2.051)
+area_size = Vector2(1.1599233, 0.21755886)
+
+[node name="LightColumn2" type="Node3D" parent="Map" unique_id=2009499937]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.1)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="Map/LightColumn2" unique_id=1555720759]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -2.0546267, 3, -2.051)
+area_size = Vector2(1.1599233, 0.21755886)
+
+[node name="AreaLight3D2" type="AreaLight3D" parent="Map/LightColumn2" unique_id=539386702]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 3.294998, 3, -2.051)
+area_size = Vector2(1.1599233, 0.21755886)
+
+[node name="AreaLight3D3" type="AreaLight3D" parent="Map/LightColumn2" unique_id=865608931]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.9230347, 3, -2.051)
+area_size = Vector2(1.1599233, 0.21755886)
+
+[node name="AreaLight3D4" type="AreaLight3D" parent="Map/LightColumn2" unique_id=1401386432]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.58256435, 3, -2.051)
+area_size = Vector2(1.1599233, 0.21755886)
+
+[node name="AreaLight3D5" type="AreaLight3D" parent="Map/LightColumn2" unique_id=847957437]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.783285, 3, -2.051)
+area_size = Vector2(1.1599233, 0.21755886)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=920210531]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7161834, 2.4823666, -16.601976)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -18.5)
 stream = ExtResource("2_fc0e3")
 autoplay = true
 max_distance = 20.0
