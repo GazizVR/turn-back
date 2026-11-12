@@ -22,7 +22,7 @@ func _input(event: InputEvent) -> void:
 		rotation_x = clamp(rotation_x,-1,1)
 		cam.rotation.x = rotation_x
 
-const SPEED = 4.0
+const SPEED = 3.0
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
