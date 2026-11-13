@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://gqxqa5g3y1mo"]
 
 [ext_resource type="Script" uid="uid://c64cfa7dt7eok" path="res://scripts/game.gd" id="1_80nbo"]
-[ext_resource type="AudioStream" uid="uid://bawo0lo6qmu58" path="res://assets/sounds/music.ogg" id="2_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://dqacfqh2pshuv" path="res://scenes/classroom.tscn" id="2_iywne"]
+[ext_resource type="AudioStream" uid="uid://c8ybf7acewgiw" path="res://assets/sounds/rain.ogg" id="3_iywne"]
 [ext_resource type="Script" uid="uid://b42gekn2d1bgj" path="res://scripts/canvas_layer.gd" id="4_7jktm"]
 [ext_resource type="PackedScene" uid="uid://cmrfg45wv3ad1" path="res://scenes/player.tscn" id="4_fc0e3"]
 
@@ -60,10 +60,11 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.7
 area_size = Vector2(1.1599233, 0.21755886)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=920210531]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -18.5)
-stream = ExtResource("2_fc0e3")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -8)
+stream = ExtResource("3_iywne")
 autoplay = true
-max_distance = 20.0
+max_distance = 12.0
+parameters/looping = true
 
 [node name="Player" parent="." unique_id=1485869630 instance=ExtResource("4_fc0e3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
@@ -88,7 +89,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.2509804)
+color = Color(0, 0, 0, 0.33333334)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseMenu" unique_id=1879201835]
 layout_mode = 1
