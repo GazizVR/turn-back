@@ -16,6 +16,7 @@ func _input(event: InputEvent) -> void:
 
 const SPEED = 1.25
 const SPRINT_SPEED = 2.25
+const JUMP_STRENGTH = 4.25
 @onready var footsteps_player = $FootstepsStreamPlayer
 
 var footsteps_sounds: Array[AudioStream] = [
@@ -26,6 +27,9 @@ var footsteps_sounds: Array[AudioStream] = [
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y += JUMP_STRENGTH
 
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -38,8 +42,11 @@ func _physics_process(delta: float) -> void:
 		if footsteps_player.stream != footsteps_sounds[0]:
 			footsteps_player.stream = footsteps_sounds[0]
 	if direction:
-		if !footsteps_player.playing:
-			footsteps_player.playing = true
+		if is_on_floor():
+			if !footsteps_player.playing:
+				footsteps_player.playing = true
+		else:
+			footsteps_player.playing = false	
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 	else:
@@ -48,3 +55,6 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, speed)
 	
 	move_and_slide()
+	
+	if is_on_wall():
+		footsteps_player.playing = false

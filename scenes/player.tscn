@@ -25,9 +25,9 @@ spot_range = 10.0
 spot_angle = 30.0
 
 [node name="FootstepsStreamPlayer" type="AudioStreamPlayer3D" parent="." unique_id=623959534]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, -0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -0.5)
 stream = ExtResource("2_onrkg")
-max_distance = 2.0
+max_distance = 1.55
 parameters/looping = true
 
 [node name="FlashlightAudio" type="AudioStreamPlayer3D" parent="." unique_id=1538962871]
