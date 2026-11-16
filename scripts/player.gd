@@ -56,5 +56,5 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
-	if is_on_wall():
+	if get_real_velocity().length_squared() < 0.01:
 		footsteps_player.playing = false
