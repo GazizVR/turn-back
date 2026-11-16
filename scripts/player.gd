@@ -21,7 +21,7 @@ const JUMP_STRENGTH = 4.25
 
 var footsteps_sounds: Array[AudioStream] = [
 	preload("res://assets/sounds/footsteps.ogg"),
-	preload("res://assets/sounds/running.ogg")
+	preload("res://assets/sounds/running.wav")
 ]
 
 func _physics_process(delta: float) -> void:
