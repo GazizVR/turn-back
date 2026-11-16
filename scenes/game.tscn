@@ -63,6 +63,10 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6nvhi")
 
+[sub_resource type="Environment" id="Environment_up4dr"]
+ssao_enabled = true
+glow_blend_mode = 0
+
 [node name="game" type="Node3D" unique_id=2025859119]
 script = ExtResource("1_80nbo")
 
@@ -71,24 +75,24 @@ script = ExtResource("1_80nbo")
 [node name="FirstRoom" type="Node3D" parent="Map" unique_id=693757212]
 
 [node name="Classroom" parent="Map/FirstRoom" unique_id=1270208102 instance=ExtResource("2_iywne")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.0011309981, 0.005253792, 0.0075736046)
 
 [node name="Lights" type="Node3D" parent="Map/FirstRoom" unique_id=790030930]
 
 [node name="AreaLight3D" type="AreaLight3D" parent="Map/FirstRoom/Lights" unique_id=1555720759]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.6, 3, -2.05)
-light_energy = 6.5
+light_energy = 4.0
 shadow_enabled = true
-area_range = 4.0
+area_attenuation = 1.25
 area_size = Vector2(6.5, 0.15)
 
 [node name="AreaLight3D2" type="AreaLight3D" parent="Map/FirstRoom/Lights" unique_id=1319401961]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.6, 3, 2.05)
-light_energy = 6.5
+light_energy = 4.0
 shadow_enabled = true
 distance_fade_shadow = 5.0
 distance_fade_length = 0.0
-area_range = 4.0
+area_attenuation = 1.25
 area_size = Vector2(6.5, 0.15)
 
 [node name="Door" type="Node3D" parent="Map/FirstRoom" unique_id=1146965620]
@@ -108,18 +112,18 @@ transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 2
 
 [node name="AreaLight3D" type="AreaLight3D" parent="Map/SecondRoom/Lights" unique_id=1162474093]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.6, 3, -2.05)
-light_energy = 6.5
+light_energy = 4.0
 shadow_enabled = true
-area_range = 4.0
+area_attenuation = 1.25
 area_size = Vector2(6.5, 0.15)
 
 [node name="AreaLight3D2" type="AreaLight3D" parent="Map/SecondRoom/Lights" unique_id=474978151]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.6, 3, 2.05)
-light_energy = 6.5
+light_energy = 4.0
 shadow_enabled = true
 distance_fade_shadow = 5.0
 distance_fade_length = 0.0
-area_range = 4.0
+area_attenuation = 1.25
 area_size = Vector2(6.5, 0.15)
 
 [node name="RainStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=920210531]
@@ -197,6 +201,9 @@ text = "Yes"
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "No"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=518625461]
+environment = SubResource("Environment_up4dr")
 
 [connection signal="pressed" from="CanvasLayer/PauseMenu/VBoxContainer/HBoxContainer/YesBtn" to="CanvasLayer" method="_on_yes_btn_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/VBoxContainer/HBoxContainer/NoBtn" to="CanvasLayer" method="_on_no_btn_pressed"]
