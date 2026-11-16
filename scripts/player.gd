@@ -24,9 +24,29 @@ var footsteps_sounds: Array[AudioStream] = [
 	preload("res://assets/sounds/running.wav")
 ]
 
+@onready var landing_player = $LandingStreamPlayer
+var is_first_falling = true
+var is_falling = false
+var is_landing = false
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
+		if !is_falling:
+			is_falling = true
 		velocity += get_gravity() * delta
+	else:
+		if is_first_falling:
+			is_falling = false
+			is_first_falling = false
+		else:
+			if is_falling:
+				if !is_landing:
+					if !landing_player.playing:
+						landing_player.play()
+						is_landing = true
+				else:
+					is_falling = false
+					is_landing = false
 		
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y += JUMP_STRENGTH
@@ -43,8 +63,8 @@ func _physics_process(delta: float) -> void:
 			footsteps_player.stream = footsteps_sounds[0]
 	if direction:
 		if is_on_floor():
-			if !footsteps_player.playing:
-				footsteps_player.playing = true
+			if !footsteps_player.playing and !landing_player.playing:
+				footsteps_player.play()
 		else:
 			footsteps_player.playing = false	
 		velocity.x = direction.x * speed
