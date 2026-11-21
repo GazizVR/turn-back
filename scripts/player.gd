@@ -16,7 +16,6 @@ func _input(event: InputEvent) -> void:
 
 const SPEED = 1.25
 const SPRINT_SPEED = 2.25
-const JUMP_STRENGTH = 4.25
 @onready var footsteps_player = $FootstepsStreamPlayer
 
 var footsteps_sounds: Array[AudioStream] = [
@@ -47,9 +46,6 @@ func _physics_process(delta: float) -> void:
 				else:
 					is_falling = false
 					is_landing = false
-		
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y += JUMP_STRENGTH
 
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
